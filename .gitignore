@@ -1,0 +1,95 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+Assets/Plugins/Android/core.androidlib/res/
+!Assets/Plugins/Android/core.androidlib/res/xml/
+Logs/
+UserSettings/
+
+# ================ #
+# Unity don't diff #
+# ================ #
+*.asset -diff
+*.unity -diff
+*.prefab -diff
+*.anim -diff
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+Build/
+Build*
+*.vs/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+*.apk
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =========== #
+# Waffle      #
+# =========== #
+Build/
+Build*.zip
+Builds/
+Assets/Scripts/UnversionedClass*
+Assets/Resources/DebuggerSettings*
+Assets/StreamingAssets/iOS/*
+Assets/Textures/1024x600/*
+Assets/Textures/1024x768/*
+Assets/Textures/1136x640/
+Assets/Textures/1280x720/
+Assets/Textures/1280x800/
+Assets/Textures/1334x750/
+Assets/Textures/1920x1080/
+Assets/Textures/2048x1536/
+Assets/Textures/2732x2048/
+Assets/Textures/4096x3072/
+Assets/Textures/960x640/
+Assets/Textures/800x480/
+Assets/Resources/Configs/Localisation/*
+AssetBundles/*
+Tools/Scripts/Localisation/output/*.json
+Tools/tmp/*
+
+# ========== #
+# Pycharm    #
+# ========== #
+Tools/Scripts/.idea
+
+# =========== #
+# Design      #
+# =========== #
+Screenshots/
+Gemfile.lock
+AndroidBuilds/BladeForge-0.01.apk
+AndroidBuilds/BladeForge-0.01adaptivetest2.apk
+AndroidBuilds/BladeForge-0.02.apk
+AndroidBuilds/BladeForge-0.03.apk
+AndroidBuilds/BladeForge-0.04.apk
+AndroidBuilds/BladeForge-0.05.apk
+AndroidBuilds/BladeForge-Marketing.apk
+AndroidBuilds/BladeForge-optimisation.apk
+AndroidBuilds/BladeForge_d.apk
+
+.vscode/
