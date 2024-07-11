@@ -58,8 +58,11 @@ Each game round consists of the following features:
 ## Scoring Systems:
 The game supports two scoring systems:
 - Odd Number Scoring System: Default scoring system, awarding sum of N odd numbers, where N is the length of the word and bonus of 2 points for bonus words.
-    - Example: "word" = 1 + 3 + 5 + 7 = 16
+    - Example: "word" = 1 + 3 + 5 + 7 = 16 points
+    - Double the points for bonus words.
 - Linear Scoring System: Optional scoring system giving one point per letter, with bonus words yielding triple points.
+    - Example: "word" = 4 points
+    - Triple the points for bonus words.
 
 The scoring system can be changed by adding/removing `LINEAR_SCORING_SYSTEM` define in the Unity Symbol Defines.
 
