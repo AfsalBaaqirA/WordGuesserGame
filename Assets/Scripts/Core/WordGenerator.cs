@@ -12,6 +12,7 @@ public class WordGenerator : MonoBehaviour
     private HashSet<string> foundWords;
     private List<string> bonusWords = new List<string>();
     private string[] letterSet;
+    private int noOfBonusWords;
 
     private void Awake()
     {
@@ -61,14 +62,17 @@ public class WordGenerator : MonoBehaviour
         // Take the first 'length' elements from the shuffled letters array
         letterSet = letters.Take(length).Select(c => c.ToString()).ToArray();
         Debug.Log("Generated new letter set: " + string.Join(", ", letterSet));
-
         UIManager.Instance.SetLetterSet(letterSet);
         foundWords = new HashSet<string>();
+        noOfBonusWords = 3;
     }
-
 
     public bool IsValidWord(string word)
     {
+        if (!IsMadeUsingLetterSet(word))
+        {
+            return false;
+        }
         if (validWords.Contains(word.ToLower()) && !foundWords.Contains(word.ToLower()))
         {
             foundWords.Add(word.ToLower());
@@ -79,7 +83,44 @@ public class WordGenerator : MonoBehaviour
 
     public bool IsBonusWord(string word)
     {
-        return bonusWords.Contains(word.ToLower());
+        System.Random random = new System.Random();
+        if (!IsMadeUsingLetterSet(word))
+        {
+            return false;
+        }
+
+        if (noOfBonusWords == 0)
+        {
+            return false;
+        }
+
+        int chance = random.Next(0, 2); // Generates 0 or 1
+        if (chance == 1)
+        {
+            noOfBonusWords--; // Decrement the count of bonus words
+            Debug.Log("Bonus word: " + word);
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsMadeUsingLetterSet(string word)
+    {
+        if (letterSet == null)
+        {
+            Debug.LogWarning("Letter set not generated yet");
+            return false;
+        }
+
+        for (int i = 0; i < word.Length; i++)
+        {
+            if (!letterSet.Contains(word[i].ToString()))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

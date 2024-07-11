@@ -9,21 +9,15 @@ public class UILeaderboard : MonoBehaviour
     [SerializeField] private GameObject highScoreContainer;
     [SerializeField] private GameObject highScoreText;
     [SerializeField] private Button continueButton;
-    private LeaderboardManager leaderboardManager;
 
     private void Start()
     {
-        leaderboardManager = LeaderboardManager.Instance;
-        if (leaderboardManager == null)
-        {
-            Debug.LogWarning("Leaderboard manager not set in UILeaderboard");
-            return;
-        }
         if (continueButton == null)
         {
             Debug.LogWarning("Continue button not set in UILeaderboard");
             return;
         }
+        GetHighScore();
         continueButton.onClick.AddListener(ContinueButtonClick);
     }
 
@@ -60,13 +54,8 @@ public class UILeaderboard : MonoBehaviour
             Debug.LogWarning("High score container not set in UILeaderboard");
             return;
         }
-        if (leaderboardManager == null)
-        {
-            Debug.LogWarning("Leaderboard manager not set in UILeaderboard");
-            return;
-        }
         ClearHighScoreContainer();
-        List<int> highScores = leaderboardManager.GetHighScores();
+        List<int> highScores = LeaderboardManager.Instance.GetHighScores();
         for (int i = 0; i < highScores.Count; i++)
         {
             GameObject score = Instantiate(highScoreText, highScoreContainer.transform);
