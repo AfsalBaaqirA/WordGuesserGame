@@ -103,10 +103,11 @@ public class GameManager : MonoBehaviour
             uiManager.ShowWordFailedEffect();
             return;
         }
-        int score = scoreManager.CalculateWordScore(word, wordGenerator.IsBonusWord(word));
+        bool isBonusWord = wordGenerator.IsBonusWord(word);
+        int score = scoreManager.CalculateWordScore(word, isBonusWord);
         scoreManager.AddScore(score);
         uiManager.UpdateScore(scoreManager.CurrentScore);
-        uiManager.ShowWordSucceededEffect();
+        uiManager.ShowWordSucceededEffect(isBonusWord);
     }
 
     public void QuitGame()

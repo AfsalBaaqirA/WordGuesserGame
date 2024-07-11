@@ -106,10 +106,11 @@ public class UIManager : MonoBehaviour
         uiGame.UpdateScore(score);
     }
 
-    public void ShowWordSucceededEffect()
+    public void ShowWordSucceededEffect(bool isBonusWord)
     {
-        uiGame.ShowWordSucceededEffect();
+        uiGame.ShowWordSucceededEffect(isBonusWord);
     }
+
 
     public void ShowWordFailedEffect()
     {

@@ -831,6 +831,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1635481304}
+    - target: {fileID: 4130443801395220108, guid: 47e3f7c1d9a42a240b1838057392a84a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130443801407807035, guid: 47e3f7c1d9a42a240b1838057392a84a, type: 3}
+      propertyPath: bonusWordSucceededEffect
+      value: 
+      objectReference: {fileID: 4130443800691019040}
     - target: {fileID: 4130443801407807038, guid: 47e3f7c1d9a42a240b1838057392a84a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -921,6 +929,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e3f7c1d9a42a240b1838057392a84a, type: 3}
+--- !u!1 &4130443800691019040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1830517614556033373, guid: 47e3f7c1d9a42a240b1838057392a84a, type: 3}
+  m_PrefabInstance: {fileID: 4130443800691019039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5339552960249664529
 PrefabInstance:
   m_ObjectHideFlags: 0

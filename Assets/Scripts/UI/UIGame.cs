@@ -12,6 +12,7 @@ public class UIGame : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private GameObject wordFailedEffect;
     [SerializeField] private GameObject wordSucceededEffect;
+    [SerializeField] private GameObject bonusWordSucceededEffect;
 
     public void Show()
     {
@@ -133,19 +134,33 @@ public class UIGame : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void ShowWordSucceededEffect()
+    public void ShowWordSucceededEffect(bool isBonusWord)
     {
-        if (wordSucceededEffect == null)
+        if (isBonusWord)
         {
-            Debug.LogWarning("Word succeeded effect not set in UIGame");
-            return;
+            if (bonusWordSucceededEffect == null)
+            {
+                Debug.LogWarning("Bonus word succeeded effect not set in UIGame");
+                return;
+            }
+            bonusWordSucceededEffect.SetActive(true);
+            Invoke("HideBonusWordSucceededEffect", 0.1f);
+            ClearWordContainer();
         }
-        wordSucceededEffect.SetActive(true);
-        Invoke("HideWordSucceededEffect", 0.1f);
-        ClearWordContainer();
+        else
+        {
+            if (wordSucceededEffect == null)
+            {
+                Debug.LogWarning("Word succeeded effect not set in UIGame");
+                return;
+            }
+            wordSucceededEffect.SetActive(true);
+            Invoke("HideWordSucceededEffect", 0.1f);
+            ClearWordContainer();
+        }
     }
 
-    public void HideWordSucceededEffect()
+    private void HideWordSucceededEffect()
     {
         wordSucceededEffect.SetActive(false);
     }
@@ -162,8 +177,13 @@ public class UIGame : MonoBehaviour
         ClearWordContainer();
     }
 
-    public void HideWordFailedEffect()
+    private void HideWordFailedEffect()
     {
         wordFailedEffect.SetActive(false);
+    }
+
+    private void HideBonusWordSucceededEffect()
+    {
+        bonusWordSucceededEffect.SetActive(false);
     }
 }
