@@ -806,7 +806,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: LEADERBOARD
+    Standalone: LINEAR_SCORING_STRATEGY
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
