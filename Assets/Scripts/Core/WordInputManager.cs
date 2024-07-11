@@ -24,14 +24,13 @@ public class WordInputManager : MonoBehaviour
         uiManager = UIManager.Instance;
         gameManager = GameManager.Instance;
     }
-
+    // Handles player inputs
     void Update()
     {
         if (gameManager.GetCurrentState() != GameManager.GameState.Playing)
         {
             return;
         }
-        // Handle user input
         foreach (char c in Input.inputString)
         {
             if (char.IsLetter(c))

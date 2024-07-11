@@ -22,7 +22,7 @@ public class LeaderboardManager : MonoBehaviour
         }
         FetchHighScores();
     }
-
+    // Logic to add new score to the list
     public bool AddScore(int score)
     {
         highScores.Add(score);
@@ -43,7 +43,7 @@ public class LeaderboardManager : MonoBehaviour
     {
         return new List<int>(highScores);
     }
-
+    // Read high scores from file
     private void FetchHighScores()
     {
         if (System.IO.File.Exists(highScorePath))
@@ -55,12 +55,12 @@ public class LeaderboardManager : MonoBehaviour
             }
         }
     }
-
+    // Save high scores to file
     private void SaveHighScores()
     {
         System.IO.File.WriteAllLines(highScorePath, highScores.ConvertAll(x => x.ToString()).ToArray());
     }
-
+    // Called when the application is closed to save high scores
     private void OnApplicationQuit()
     {
         SaveHighScores();

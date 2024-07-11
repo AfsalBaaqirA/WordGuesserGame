@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    // Scoring Strategy depends on the Symbol Define in Unity
     private void Start()
     {
         ResetScore();

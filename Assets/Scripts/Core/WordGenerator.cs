@@ -43,12 +43,12 @@ public class WordGenerator : MonoBehaviour
             Debug.LogError("Dictionary file not found at " + dictionaryPath);
         }
     }
-
+    // Select 4 - 9 random letters
     public void GenerateNewLetterSet()
     {
         System.Random random = new System.Random();
         char[] letters = (char[])Alphabets.Clone();
-        int length = random.Next(4, 10); // Length of the array of random letters, between 4 and 9
+        int length = random.Next(4, 10); // Randomize the length of the letter set 4 - 9
 
         // Fisher-Yates shuffle algorithm to shuffle the letters array
         for (int i = letters.Length - 1; i > 0; i--)
@@ -66,7 +66,7 @@ public class WordGenerator : MonoBehaviour
         foundWords = new HashSet<string>();
         noOfBonusWords = 3;
     }
-
+    // Can the word be formed from the current letter set && is it in the dictionary
     public bool IsValidWord(string word)
     {
         if (!IsMadeUsingLetterSet(word))
@@ -80,7 +80,7 @@ public class WordGenerator : MonoBehaviour
         }
         return false;
     }
-
+    // Bonus word calculation
     public bool IsBonusWord(string word)
     {
         System.Random random = new System.Random();
@@ -94,10 +94,10 @@ public class WordGenerator : MonoBehaviour
             return false;
         }
 
-        int chance = random.Next(0, 2); // Generates 0 or 1
+        int chance = random.Next(0, 2);
         if (chance == 1)
         {
-            noOfBonusWords--; // Decrement the count of bonus words
+            noOfBonusWords--;
             Debug.Log("Bonus word: " + word);
             return true;
         }

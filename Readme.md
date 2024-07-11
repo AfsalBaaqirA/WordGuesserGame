@@ -49,6 +49,7 @@ Each game round consists of the following features:
 - Timer: A 60-second countdown timer starts once the letters are generated.
 - Word Entry: Players can input words using the generated letters.
 - Word Validation: Entered words are checked against a provided dictionary.
+    - Dictionary is implemented as HashSet for fast word lookup `O(1)`.
     - Valid words are scored based on their length.
     - Invalid words are rejected, and no score is added.
     - Already entered words are rejected, and no score is added.
@@ -65,6 +66,9 @@ The game supports two scoring systems:
     - Triple the points for bonus words.
 
 The scoring system can be changed by adding/removing `LINEAR_SCORING_SYSTEM` define in the Unity Symbol Defines.
+
+## Known Issues
+- The game does not end when the player enters all possible words that can be generated from the LetterSet.
 
 ## Bonus Words
 Bonus words are special words that yield higher scores. Each round has three bonus words. Bonus words are calculated based on the following criteria:

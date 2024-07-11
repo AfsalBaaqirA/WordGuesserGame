@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
     public void ShowMainMenu()
     {
         if (!checkSerializedFields())

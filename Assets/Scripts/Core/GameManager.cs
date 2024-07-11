@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         TransitionToState(GameState.MainMenu);
     }
 
+    // Handles the timer and game over trigger
     private void Update()
     {
         if (currentState == GameState.Playing)
@@ -53,11 +54,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Called for the Play button in the main menu
     public void PlayGame()
     {
         TransitionToState(GameState.Playing);
     }
 
+    // Called when the state changes to Playing 
     public void StartNewGame()
     {
         if (uiManager == null)
@@ -80,7 +83,7 @@ public class GameManager : MonoBehaviour
         uiManager.ShowGameUI();
         gameTimer = GameDuration;
     }
-
+    // Handles the word submission, score calculation, and UI updates
     public void SubmitWord(string word)
     {
         if (wordGenerator == null)
@@ -109,7 +112,7 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateScore(scoreManager.CurrentScore);
         uiManager.ShowWordSucceededEffect(isBonusWord);
     }
-
+    // Called by Quit button in the main menu
     public void QuitGame()
     {
 #if UNITY_STANDALONE
@@ -119,12 +122,12 @@ public class GameManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-
+    // Called when the game timer reaches 0
     public void GameOver()
     {
         TransitionToState(GameState.GameOver);
     }
-
+    // Called by Leaderboard button in the main menu
     public void ShowLeaderboard()
     {
         if (uiManager == null)
@@ -135,12 +138,12 @@ public class GameManager : MonoBehaviour
         TransitionToState(GameState.Leaderboard);
         uiManager.ShowLeaderboard();
     }
-
+    // Called by the Continue button in the leaderboard screen, end screen and at start of the game
     public void ShowMainMenu()
     {
         TransitionToState(GameState.MainMenu);
     }
-
+    // Called when the GameState is GameOver
     public void EndGame()
     {
         if (scoreManager == null)
@@ -162,7 +165,7 @@ public class GameManager : MonoBehaviour
         bool newHighScore = leaderboardManager.AddScore(finalScore);
         uiManager.ShowGameOverScreen(newHighScore, finalScore);
     }
-
+    // Changes the current state
     private void TransitionToState(GameState newState)
     {
         currentState = newState;
@@ -181,7 +184,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
+    // Returns the current GameState
     public GameState GetCurrentState()
     {
         return currentState;
